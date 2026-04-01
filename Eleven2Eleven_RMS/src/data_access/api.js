@@ -13,9 +13,8 @@ import {
 
 const BASE_URL = 'https://eleven2eleven-rms-db-default-rtdb.asia-southeast1.firebasedatabase.app'
 
-const firebaseConfig = {
-	databaseURL: BASE_URL,
-}
+const firebaseConfig = JSON.parse(process.env.FIREBASE_CONFIG || '{}')
+
 
 const app = initializeApp(firebaseConfig)
 const db = getDatabase(app)
