@@ -1,8 +1,9 @@
 FROM node:18-alpine as builder
 WORKDIR /app
-COPY package-lock.json ./
 COPY . .
-RUN npm run dev
+WORKDIR /app/Eleven2Eleven_RMS
+RUN npm install
+RUN npm run build
 FROM nginx:alpine
 RUN rm -rf /usr/share/nginx/html/*
 
